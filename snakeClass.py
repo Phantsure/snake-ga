@@ -8,7 +8,7 @@ import seaborn as sns
 import numpy as np
 
 # Set options to activate or deactivate the game view, and its speed
-display_option = False
+display_option = True
 speed = 0
 pygame.font.init()
 
@@ -19,8 +19,8 @@ class Game:
         pygame.display.set_caption('SnakeGen')
         self.game_width = game_width
         self.game_height = game_height
-        self.gameDisplay = pygame.display.set_mode((game_width, game_height+60))
-        self.bg = pygame.image.load("img/background.png")
+        self.gameDisplay = pygame.display.set_mode((game_width, game_height+100))
+        self.bg = pygame.image.load("img/snake_back.png")
         self.crash = False
         self.player = Player(self)
         self.food = Food()
@@ -135,11 +135,11 @@ def display_ui(game, score, record):
     text_score_number = myfont.render(str(score), True, (0, 0, 0))
     text_highest = myfont.render('HIGHEST SCORE: ', True, (0, 0, 0))
     text_highest_number = myfont_bold.render(str(record), True, (0, 0, 0))
-    game.gameDisplay.blit(text_score, (45, 440))
-    game.gameDisplay.blit(text_score_number, (120, 440))
-    game.gameDisplay.blit(text_highest, (190, 440))
-    game.gameDisplay.blit(text_highest_number, (350, 440))
-    game.gameDisplay.blit(game.bg, (10, 10))
+    game.gameDisplay.blit(text_score, (45, 600))
+    game.gameDisplay.blit(text_score_number, (120, 600))
+    game.gameDisplay.blit(text_highest, (190, 600))
+    game.gameDisplay.blit(text_highest_number, (350, 600))
+    game.gameDisplay.blit(game.bg, (0, 0))
 
 
 def display(player, food, game, record):
@@ -176,9 +176,9 @@ def run():
     score_plot = []
     counter_plot =[]
     record = 0
-    while counter_games < 150:
+    while counter_games < 10000:
         # Initialize classes
-        game = Game(440, 440)
+        game = Game(580, 580)
         player1 = game.player
         food1 = game.food
 
